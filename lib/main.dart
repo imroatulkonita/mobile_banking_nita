@@ -59,10 +59,13 @@ class HomePage extends StatelessWidget{
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 25,
+                          radius: 27,
                           backgroundColor: Colors.white,
-                          child: Icon(Icons.person, color: Colors.blue),
+                          child: CircleAvatar(
+                            radius: 24,
+                            backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=47"),
                         ),
+                      ),
                         SizedBox(width: 10),
 
                         Column(
