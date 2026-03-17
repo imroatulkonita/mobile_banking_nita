@@ -68,6 +68,18 @@ class HomePage extends StatelessWidget{
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+
+                            Text(
+                              "BANK MANDIRI",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+
+                            SizedBox(height: 10),
+                            
                             Text("Imroatul Konita",
                                style: TextStyle(
                                 color: Colors.white,
