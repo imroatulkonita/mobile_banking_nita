@@ -1,122 +1,286 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main(){
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: HomePage (),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomePage extends StatelessWidget{
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Widget menuItem(IconData icon, String title) {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 28,
+          backgroundColor: Colors.blue[100],
+          child: Icon(icon, color: Colors.blue),
+        ),
+        SizedBox(height: 8),
+        Text(title, textAlign: TextAlign.center, style: TextStyle(fontSize: 11))
+      ],
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+      backgroundColor: Colors.grey[200],
+
+      body: ListView(
+        children: [
+
+          // HEADER
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25),
+              ),
             ),
-          ],
+
+            child: Column(
+              children: [
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.white,
+                          child: Icon(Icons.person, color: Colors.blue),
+                        ),
+                        SizedBox(width: 10),
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Imroatul Konita",
+                               style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18)),
+                            Text("2.600 poin",
+                                 style: TextStyle(
+                                  color: Colors.white70))
+
+                          ],
+                        )
+                      ],
+                    ),
+
+                    Row(
+                      children: [
+                        Icon(Icons.mail, color: Colors.white),
+                      ],
+                    )
+                  ],
+                ),
+
+                SizedBox(height: 20),
+
+                // CARD REKENING
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Rekening",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold)),
+                            Row(
+                              children: [
+                                Icon(Icons.visibility, size: 18),
+                                SizedBox(width: 5),
+                                Text("Saldo"),
+                              ],
+                            )
+                          ],
+                        ),
+
+                        SizedBox(height: 15),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            menuItem(Icons.account_balance, "Tabungan"),
+                            menuItem(Icons.credit_card, "Kartu"),
+                            menuItem(Icons.savings, "Deposito"),
+                            menuItem(Icons.money, "pinjaman"),
+                            menuItem(Icons.show_chart, "Investasi"),
+                          ],
+                        ),
+
+                        SizedBox(height: 15),
+
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100],
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Tabungan Nita"),
+                                  Text("30.000.000",
+                                       style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18)),
+                                ],
+                              ),
+                              Icon(Icons.credit_card)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
+          SizedBox(height: 15),
+
+          // TRANSAKSI FAVORIT
+          Padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Card(
+            shpe: RoundedRectangleBorder(
+              BorderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                Padding: EdgeInsets.all(15),
+                child: Column(
+                  children: [
+
+                    Row(
+                      MainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Transaksi Favorit",
+                            style: TextStyle(
+                              FontWeight: FontWeight.Bool)),
+                        Icon(Icons.settings)
+                      ],
+                    ),
+
+                    SizedBox(height: 15),
+
+                    GridView.count(
+                      ShrinkWrap: true,
+                      CrossAxisCount: 5
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+
+                        menuItem(Icons.send, "Transfer"),
+                        menuItem(Icons.receipt, "Bayar"),
+                        menuItem(Icons.account_balance_wallet, "Top Up"),
+                        menuItem(Icons.qr_code, "QRIS"),
+                        menuItem(Icons.money, "Tarik"),
+                        menuItem(Icons.public, "Valas"),
+                        menuItem(Icons.snow_chart, "Invest"),
+                        menuItem(Icons.aqr_code_scanner, "QR Trf"),
+                        menuItem(Icons.wifi, "Tap Pay"),
+                        menuItem(Icons.more_horiz, "Lainnya"),
+                      ],
+                    )
+
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 80),
+        ],
+      ),
+
+      // BOTTOM NAVIGATION
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.home),
+                  Text("Home", style: TextStyle(fontSize: 10)),
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.home),
+                  Text("Home", style: TextStyle(fontSize: 10),)
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.shopping_bag),
+                  Text("Produk", style: TextStyle(fontSize: 10),)
+                ],
+              ),
+
+              SizedBox(width: 40),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.card_giftcard),
+                  Text("Promo", style:  TextStyle(fontSize: ActionIconThemeData(10)),)
+                ],
+              ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.person),
+                  Text("Profil", style: TextStyle(fontSize: 10))
+                ],
+              ),
+              
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+
+      // BUTTON QR TENGAH
+      FloatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        child: Icon(Icons.qr_code),
+        onPressed: () {},
       ),
+      FloatingActionButton: FloatingActionButton.centerDocked,
     );
   }
 }
