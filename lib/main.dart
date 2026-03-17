@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget{
                             ),
 
                             SizedBox(height: 10),
-                            
+
                             Text("Imroatul Konita",
                                style: TextStyle(
                                 color: Colors.white,
@@ -131,7 +131,7 @@ class HomePage extends StatelessWidget{
                         SizedBox(height: 15),
 
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             menuItem(Icons.account_balance, "Tabungan"),
                             menuItem(Icons.credit_card, "Kartu"),
@@ -249,20 +249,12 @@ class HomePage extends StatelessWidget{
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.home),
-                  Text("Home", style: TextStyle(fontSize: 10),)
-                ],
-              ),
-
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
                   Icon(Icons.shopping_bag),
                   Text("Produk", style: TextStyle(fontSize: 10),)
                 ],
               ),
 
-              SizedBox(width: 40),
+              SizedBox(width: 50),
 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -287,8 +279,9 @@ class HomePage extends StatelessWidget{
 
       // BUTTON QR TENGAH
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
-        child: Icon(Icons.qr_code),
+        backgroundColor: Color(0xFF00AEEF),
+        elevation: 6,
+        child: Icon(Icons.qr_code, size: 30,),
         onPressed: () {},
       ),
       floatingActionButtonLocation: 
