@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget{
                             backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=47"),
                         ),
                       ),
+                      
                         SizedBox(width: 10),
 
                         Column(
@@ -233,9 +234,9 @@ class HomePage extends StatelessWidget{
 
       // BOTTOM NAVIGATION
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 8,
-        child: Container(
+        child: SizedBox(
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
