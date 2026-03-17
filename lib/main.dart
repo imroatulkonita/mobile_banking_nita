@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main(){
@@ -168,21 +166,22 @@ class HomePage extends StatelessWidget{
           SizedBox(height: 15),
 
           // TRANSAKSI FAVORIT
-          Padding: EdgeInsets.symmetric(horizontal: 15),
+          Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Card(
-            shpe: RoundedRectangleBorder(
-              BorderRadius: BorderRadius.circular(20)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20)),
               child: Padding(
-                Padding: EdgeInsets.all(15),
+                padding: EdgeInsets.all(15),
                 child: Column(
                   children: [
 
                     Row(
-                      MainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Transaksi Favorit",
                             style: TextStyle(
-                              FontWeight: FontWeight.Bool)),
+                              fontWeight: FontWeight.bold)),
                         Icon(Icons.settings)
                       ],
                     ),
@@ -190,8 +189,8 @@ class HomePage extends StatelessWidget{
                     SizedBox(height: 15),
 
                     GridView.count(
-                      ShrinkWrap: true,
-                      CrossAxisCount: 5
+                      shrinkWrap: true,
+                      crossAxisCount: 5,
                       physics: NeverScrollableScrollPhysics(),
                       children: [
 
@@ -201,8 +200,8 @@ class HomePage extends StatelessWidget{
                         menuItem(Icons.qr_code, "QRIS"),
                         menuItem(Icons.money, "Tarik"),
                         menuItem(Icons.public, "Valas"),
-                        menuItem(Icons.snow_chart, "Invest"),
-                        menuItem(Icons.aqr_code_scanner, "QR Trf"),
+                        menuItem(Icons.show_chart, "Invest"),
+                        menuItem(Icons.qr_code_scanner, "QR Trf"),
                         menuItem(Icons.wifi, "Tap Pay"),
                         menuItem(Icons.more_horiz, "Lainnya"),
                       ],
@@ -257,7 +256,7 @@ class HomePage extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.card_giftcard),
-                  Text("Promo", style:  TextStyle(fontSize: ActionIconThemeData(10)),)
+                  Text("Promo", style:  TextStyle(fontSize: 10)),
                 ],
               ),
 
@@ -265,7 +264,7 @@ class HomePage extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.person),
-                  Text("Profil", style: TextStyle(fontSize: 10))
+                  Text("Profil", style: TextStyle(fontSize: 10)),
                 ],
               ),
               
@@ -275,12 +274,13 @@ class HomePage extends StatelessWidget{
       ),
 
       // BUTTON QR TENGAH
-      FloatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         child: Icon(Icons.qr_code),
         onPressed: () {},
       ),
-      FloatingActionButton: FloatingActionButton.centerDocked,
+      floatingActionButtonLocation: 
+          FloatingActionButtonLocation.centerDocked,
     );
   }
 }
