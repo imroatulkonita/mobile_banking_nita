@@ -26,6 +26,12 @@ class HomePage extends StatefulWidget{
 class _HomePageState extends State<HomePage> {
   int saldo = 30000000;
 
+  String formatRupiah(int number) {
+    return number.toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'),
+    (match) => '.',
+    );
+  }
+
   Widget menuItem(IconData icon, String title) {
     return Column(
       children: [
@@ -171,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text("Tabungan Nita"),
                                   Text(
-                                    "Rp $saldo",
+                                    "Rp ${formatRupiah(saldo)}",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
