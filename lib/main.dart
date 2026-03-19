@@ -72,24 +72,31 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
-                    Row(
+                    SizedBox(width: 40),
+
+                    Column(
+                      mainAxisSize:   MainAxisSize.min,
                       children: [
-                      Image.network("https://baradesain.wordpress.com/wp-content/uploads/2021/03/bank-mandiri-logo_mirror.png?w=300",
-                      width: 40,
+
+                      Image.network("https://images.bisnis.com/posts/2022/02/25/1504876/logo-livin.jpg",
+                      width: 60,
 
                       ),
-                        SizedBox(width: 8),
+                      
+                        SizedBox(height: 5),
+
                         Text(
-                          "BANK MANDIRI",
+                          "Livin' by Mandiri",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 16,
                           ),
                         ),
                       ],
                     ),
+
                     Icon(Icons.mail, color: Colors.white),
+
                   ],
                 ),
 
@@ -99,8 +106,12 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     CircleAvatar(
                       radius: 27,
-                      backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=47"),
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 24,
+                      backgroundImage: NetworkImage("https://png.pngtree.com/png-vector/20240620/ourlarge/pngtree-beautiful-cartoon-girl-logo-png-image_12811932.png"),
                     ),
+                  ),
                     SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,12 +120,12 @@ class _HomePageState extends State<HomePage> {
                                style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18)),
-                            Text("2.600 poin",
+                            Text("2.600 Livin' poin",
                                  style: TextStyle(
                                   color: Colors.white70)),
 
                           ],
-                        )
+                        ),
                       ],
                     ),
 
