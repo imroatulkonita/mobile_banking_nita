@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.white,
                           child: CircleAvatar(
                             radius: 24,
-                            backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=47"),
+                            backgroundImage: NetworkImage("https://goletskerja.com/pt-bank-mandiri-persero-tbk-29/"),
                         ),
                       ),
                       
