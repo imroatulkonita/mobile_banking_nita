@@ -16,8 +16,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatefulWidget{
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int saldo = 30000000;
 
   Widget menuItem(IconData icon, String title) {
     return Column(
@@ -163,10 +170,14 @@ class HomePage extends StatelessWidget{
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text("Tabungan Nita"),
-                                  Text("30.000.000",
-                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18)),
+                                  Text(
+                                    "Rp $saldo",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+
                                 ],
                               ),
                               Icon(Icons.credit_card)
@@ -213,7 +224,69 @@ class HomePage extends StatelessWidget{
                       physics: NeverScrollableScrollPhysics(),
                       children: [
 
-                        menuItem(Icons.send, "Transfer"),
+                        GestureDetector(
+                          onTap: () {
+                            TextEditingController nama = TextEditingController();
+                            TextEditingController nominal = TextEditingController();
+
+                            showDialog(
+                              context: context, 
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text("Transfer Uang"),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      TextField(
+                                        controller: nama,
+                                        decoration: InputDecoration(labelText: "Nama Tujuan"),
+                                      ),
+                                      TextField(
+                                        controller: nominal,
+                                        decoration: InputDecoration(labelText: "Nominal"),
+                                        keyboardType: TextInputType.number,
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text("Batal"),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                         int jumlah = int.tryParse(nominal.text) ?? 0;
+                                         if (jumlah <= 0) {
+                                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Nominal tidak valid")),
+                                         );
+                                         return;
+                              }
+
+                              if (jumlah > saldo){
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Saldo tidak cukup")),
+                                );
+                                return;
+                              }
+
+                              setState(() {
+                                saldo -= jumlah;
+                              });
+
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Transfer ke ${nama.text} sebesar Rp $jumlah berhasil",
+                                      ),
+                                    ),
+                                  );
+                               },
+                               child: Text("Kirim"),
+                                ),
+                             ],
+                           );
+                          },
+                        );
+                      },
+                        child: menuItem(Icons.send, "Transfer"),
+                        ),
                         menuItem(Icons.receipt, "Bayar"),
                         menuItem(Icons.account_balance_wallet, "Top Up"),
                         menuItem(Icons.qr_code, "QRIS"),
