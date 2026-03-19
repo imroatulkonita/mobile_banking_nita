@@ -74,54 +74,50 @@ class _HomePageState extends State<HomePage> {
 
                     Row(
                       children: [
-                        CircleAvatar(
-                          radius: 27,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            radius: 24,
-                            backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png"),
-                        ),
-                      ),
-                      
-                        SizedBox(width: 10),
+                      Image.network("https://baradesain.wordpress.com/wp-content/uploads/2021/03/bank-mandiri-logo_mirror.png?w=300",
+                      width: 40,
 
+                      ),
+                        SizedBox(width: 8),
+                        Text(
+                          "BANK MANDIRI",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Icon(Icons.mail, color: Colors.white),
+                  ],
+                ),
+
+                SizedBox(height: 15),
+
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 27,
+                      backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=47"),
+                    ),
+                    SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
-                            Text(
-                              "BANK MANDIRI",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            SizedBox(height: 10),
-
                             Text("Imroatul Konita",
                                style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18)),
                             Text("2.600 poin",
                                  style: TextStyle(
-                                  color: Colors.white70))
+                                  color: Colors.white70)),
 
                           ],
                         )
                       ],
                     ),
 
-                    Row(
-                      children: [
-                        Icon(Icons.mail, color: Colors.white),
-                      ],
-                    )
-                  ],
-                ),
-
-                SizedBox(height: 20),
 
                 // CARD REKENING
                 Card(
@@ -144,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(width: 5),
                                 Text("Saldo"),
                               ],
-                            )
+                            ),
                           ],
                         ),
 
