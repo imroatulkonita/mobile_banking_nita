@@ -75,9 +75,13 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 30,
-                            backgroundImage: NetworkImage("https://baradesain.wordpress.com/wp-content/uploads/2021/03/bank-mandiri-logo_mirror.png?w=300"),
+                          radius: 27,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            radius: 24,
+                            backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png"),
                         ),
+                      ),
                       
                         SizedBox(width: 10),
 
