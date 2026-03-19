@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.white,
                           child: CircleAvatar(
                             radius: 24,
-                            backgroundImage: NetworkImage("https://goletskerja.com/wp-content/uploads/2023/02/BANK-MANDIRI-2-1068x601.png"),
+                            backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png"),
                         ),
                       ),
                       
