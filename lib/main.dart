@@ -76,12 +76,8 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         CircleAvatar(
                           radius: 27,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            radius: 24,
                             backgroundImage: NetworkImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Mandiri_logo_2016.svg/512px-Bank_Mandiri_logo_2016.svg.png"),
                         ),
-                      ),
                       
                         SizedBox(width: 10),
 
