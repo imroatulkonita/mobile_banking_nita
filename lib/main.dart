@@ -331,39 +331,64 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              GestureDetector(
+                onTap: () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.home),
                   Text("Home", style: TextStyle(fontSize: 10)),
                 ],
               ),
+            ),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => 
+                    ProdukPage()),
+                  );
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.shopping_bag),
-                  Text("Produk", style: TextStyle(fontSize: 10),)
+                  Text("Produk", style: TextStyle(fontSize: 10)),
                 ],
               ),
+            ),
 
               SizedBox(width: 50),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                  PromoPage()),
+                  );
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.card_giftcard),
                   Text("Promo", style:  TextStyle(fontSize: 10)),
                 ],
               ),
+            ),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                  ProfilPage()),
+                  );
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.person),
                   Text("Profil", style: TextStyle(fontSize: 10)),
                 ],
               ),
+            ),
               
             ],
           ),
