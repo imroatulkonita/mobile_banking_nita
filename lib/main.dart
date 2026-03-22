@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main(){
-  runApp(const MyApp());
+  runApp(const MyApp()); 
 }
 
 class MyApp extends StatelessWidget {
@@ -379,6 +379,42 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: 
           FloatingActionButtonLocation.centerDocked,
+    );
+  }
+}
+
+class ProdukPage extends StatelessWidget{
+  const ProdukPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Produk")),
+      body: Center(child: Text("Halaman Produk")),
+    );
+  }
+}
+
+class PromoPage extends StatelessWidget {
+  const PromoPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("promo")),
+      body: Center(child: Text("Halaman Promo")),
+    );
+  }
+}
+
+class ProfilPage extends StatelessWidget{
+  const ProfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Profil")),
+      body: Center(child: Text("Halaman Profil")),
     );
   }
 }
