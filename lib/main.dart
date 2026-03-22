@@ -100,10 +100,12 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
 
-                SizedBox(height: 15),
+                SizedBox(height: 8),
 
-                Row(
-                  children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 5),
+                  child: Row(
+                    children: [
                     CircleAvatar(
                       radius: 27,
                       backgroundColor: Colors.white,
@@ -116,18 +118,21 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Imroatul Konita",
+                            Text(
+                              "Imroatul Konita",
                                style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18)),
-                            Text("2.600 Livin' poin",
+                            Text(
+                              "2.600 Livin' poin",
                                  style: TextStyle(
-                                  color: Colors.white70)),
-
-                          ],
-                        ),
-                      ],
-                    ),
+                                  color: Colors.white70),
+                                 ),
+                               ],
+                             ),
+                           ],
+                         ),
+                       ),
 
 
                 // CARD REKENING
