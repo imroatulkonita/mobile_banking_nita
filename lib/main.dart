@@ -486,7 +486,7 @@ class ProfilPage extends StatelessWidget{
           SizedBox(height: 20),
           CircleAvatar(
             radius: 40,
-            backgroundImage: NetworkImage("https://images.bisnis.com/posts/2022/02/25/1504876/logo-livin.jpg"),
+            backgroundImage: NetworkImage("https://png.pngtree.com/png-vector/20240620/ourlarge/pngtree-beautiful-cartoon-girl-logo-png-image_12811932.png"),
           ),
           SizedBox(height: 10),
           Text("Imroatul Konita",
