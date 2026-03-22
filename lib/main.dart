@@ -337,7 +337,9 @@ class _HomePageState extends State<HomePage> {
             children: [
 
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                   Navigator.pop(context);
+                },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                 children: [
