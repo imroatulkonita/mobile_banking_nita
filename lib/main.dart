@@ -334,70 +334,64 @@ class _HomePageState extends State<HomePage> {
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+        children: [
 
-              GestureDetector(
-                onTap: () {
-                   Navigator.pop(context);
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.home),
-                  Text("Home", style: TextStyle(fontSize: 10)),
+          GestureDetector(
+            onTap: () {},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.home),
+                Text("Home", style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          ),
+
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProdukPage()),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.shopping_bag),
+                Text("Produk", style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          ),
+
+          SizedBox(width: 50),
+
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PromoPage()),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.card_giftcard),
+                Text("Promo", style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          ),
+
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilPage()),
+              );
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.person),
+                Text("Profil", style: TextStyle(fontSize: 10)),
                 ],
               ),
             ),
 
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => 
-                    ProdukPage()),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.shopping_bag),
-                  Text("Produk", style: TextStyle(fontSize: 10)),
-                ],
-              ),
-            ),
-
-              SizedBox(width: 50),
-
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => 
-                  PromoPage()),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.card_giftcard),
-                  Text("Promo", style:  TextStyle(fontSize: 10)),
-                ],
-              ),
-            ),
-
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => 
-                  ProfilPage()),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.person),
-                  Text("Profil", style: TextStyle(fontSize: 10)),
-                ],
-              ),
-            ),
-              
-            ],
+           ],
           ),
         ),
       ),
