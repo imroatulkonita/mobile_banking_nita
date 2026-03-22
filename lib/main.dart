@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
 
           // HEADER
           Container(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.only(
