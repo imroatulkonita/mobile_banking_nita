@@ -415,7 +415,31 @@ class ProdukPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Produk")),
-      body: Center(child: Text("Halaman Produk")),
+      body: ListView(
+        padding: EdgeInsets.all(16),
+        children: [
+          ListTile(
+            leading: Icon(Icons.account_balance),
+            title: Text("Tabungan"),
+            subtitle: Text("Buku Rekening Baru"),
+          ),
+          ListTile(
+            leading: Icon(Icons.credit_card),
+            title: Text("Kartu Kredit"),
+            subtitle: Text("Ajukan Kartu Kredit"),
+          ),
+          ListTile(
+            leading: Icon(Icons.savings),
+            title: Text("Deposito"),
+            subtitle: Text("Investasi aman"),
+          ),
+          ListTile(
+            leading: Icon(Icons.money),
+            title: Text("Pinjaman"),
+            subtitle: Text("Ajukan Pinjaman"),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -427,7 +451,25 @@ class PromoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("promo")),
-      body: Center(child: Text("Halaman Promo")),
+      body: ListView(
+        padding: EdgeInsets.all(16),
+        children: [
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.local_offer, color: Colors.red),
+              title: Text("Cashback 50%"),
+              subtitle: Text("Transfer bebas biaya"),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.discount, color: Colors.orange),
+              title: Text("Diskon Merchant"),
+              subtitle: Text("Belanja hemat di partner"),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -439,7 +481,29 @@ class ProfilPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Profil")),
-      body: Center(child: Text("Halaman Profil")),
+      body: Column(
+        children: [
+          SizedBox(height: 20),
+          CircleAvatar(
+            radius: 40,
+            backgroundImage: NetworkImage("https://images.bisnis.com/posts/2022/02/25/1504876/logo-livin.jpg"),
+          ),
+          SizedBox(height: 10),
+          Text("Imroatul Konita",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          Text("nita@gmail.com"),
+          SizedBox(height: 20),
+
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("Pengaturan"),
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text("Logout"),
+          ),
+        ],
+      ),
     );
   }
 }
