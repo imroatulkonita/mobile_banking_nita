@@ -442,7 +442,7 @@ class ProdukPage extends StatelessWidget{
         ],
       ),
     );
-  }
+  } 
 }
 
 class PromoPage extends StatelessWidget {
