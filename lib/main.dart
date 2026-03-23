@@ -401,8 +401,31 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xFF00AEEF),
         elevation: 6,
         child: Icon(Icons.qr_code, size: 30,),
-        onPressed: () {},
-      ),
+        onPressed: () {
+          showDialog(
+            context: context, 
+            builder: (context) {
+              return AlertDialog(
+                title: Text("QRIS"),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.qr_code, size: 100),
+                    SizedBox(height: 10),
+                    Text("Scan / Bayar QRIS"),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context), 
+                    child: Text("Tutup"),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
       floatingActionButtonLocation: 
           FloatingActionButtonLocation.centerDocked,
     );
